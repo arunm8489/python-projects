@@ -1,0 +1,23 @@
+from collections import Counter 
+import re
+
+#reading input data
+data_set = input('Enter your paragraph: ')
+
+#preprocessing data to remove all non word charecters like #&*! etc
+data = re.sub(r'\W',' ',data_set)
+#removing digits
+#also it will consider both lower and upper case words as same
+data = re.sub(r'\d','',data.lower())
+
+# split() returns list of all the words in the string 
+split = data.split() 
+  
+# Pass the split_it list to instance of Counter class. 
+Counter = Counter(split) 
+  
+# most_common() produces k frequently encountered 
+# input values and their respective counts. 
+most_occurent_words = Counter.most_common(4) 
+  
+print(most_occurent_words)
